@@ -20,7 +20,7 @@ spec:
         effect: NoSchedule
       containers:
       - name: fluentd
-        image: fluent/fluentd-kubernetes-daemonset:fluentd
+        image: sbij/fluentd-kubernetes-daemonset:fluentd
         resources:
           limits:
             memory: 200Mi
