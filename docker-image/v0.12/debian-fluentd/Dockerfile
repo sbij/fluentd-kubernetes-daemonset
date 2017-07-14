@@ -8,6 +8,9 @@ USER root
 WORKDIR /home/fluent
 ENV PATH /home/fluent/.gem/ruby/2.3.0/bin:$PATH
 
+RUN ["gem", "install", "fluent-plugin-gelf-hs"]
+RUN ["gem", "install", "fluent-plugin-secure-forward"]
+
 RUN buildDeps="sudo make gcc g++ libc-dev ruby-dev libffi-dev" \
      && apt-get update \
      && apt-get install \
