@@ -15,26 +15,28 @@ spec:
         version: v1
         kubernetes.io/cluster-service: "true"
     spec:
-      nodeSelector:
-        beta.kubernetes.io/fluentd-ds-ready: "true"
+#      nodeSelector:
+#        beta.kubernetes.io/fluentd-ds-ready: "true"
       tolerations:
       - key: node-role.kubernetes.io/master
         effect: NoSchedule
       containers:
       - name: fluentd
         image: antonh/fluentd-kubernetes-daemonset
-        resources:
-          limits:
-            memory: 200Mi
-          requests:
-            cpu: 100m
-            memory: 200Mi
+        imagePullPolicy: Always
+#        resources:
+#          limits:
+#            memory: 200Mi
+#          requests:
+#            cpu: 100m
+#            memory: 200Mi
         volumeMounts:
         - name: varlog
           mountPath: /var/log
         - name: varlibdockercontainers
+          mountPath: /var/lib/docker/containers
           #mountPath: /var/lib/docker/containers
-          mountPath: /volumes/persistence/var/log/
+          #mountPath: /volumes/persistence/var/log/
           readOnly: true
       terminationGracePeriodSeconds: 30
       volumes:
@@ -43,5 +45,6 @@ spec:
           path: /var/log
       - name: varlibdockercontainers
         hostPath:
-          path: /volumes/persistence/var/log/
+          path: /var/lib/docker/containers
+          #path: /volumes/persistence/var/log/
           #path: /var/lib/docker/containers
