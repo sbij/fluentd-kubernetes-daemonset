@@ -34,8 +34,8 @@ spec:
         - name: varlog
           mountPath: /var/log
         - name: varlibdockercontainers
-          mountPath: /var/lib/docker/containers
           #mountPath: /var/lib/docker/containers
+          mountPath: /mnt/storage/docker_lib/
           #mountPath: /volumes/persistence/var/log/
           readOnly: true
       terminationGracePeriodSeconds: 30
@@ -45,6 +45,6 @@ spec:
           path: /var/log
       - name: varlibdockercontainers
         hostPath:
-          path: /var/lib/docker/containers
+          path: /mnt/storage/docker_lib/
           #path: /volumes/persistence/var/log/
           #path: /var/lib/docker/containers
