@@ -1,8 +1,9 @@
 # Fluentd Daemonset for Kubernetes
 
 ## Standalone version
-For using Fluentd on the same machine than the Elasticsearch instance, you should use the **standalone** version `docker-image/v0.12/debian-fluentd-standalone`.
-Then you can use the DockerHub link in the Kubernetes charts to launch the full architecture (see repository [sbij/kubernetes-logging-charts](https://github.com/sbij/kubernetes-logging-charts)).
+For using Fluentd on the same machine as the Elasticsearch instance, you should use the **standalone** version `docker-image/v0.12/debian-fluentd-standalone`.
+
+Then you can paste the DockerHub link in the Kubernetes charts to launch the full architecture for the EFK logging (see repository [sbij/k2-charts](https://github.com/sbij/k2-charts)).
 
 
 ## Normal version
