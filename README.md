@@ -1,6 +1,18 @@
 # Fluentd Daemonset for Kubernetes
 
-edited version
+## Standalone version
+For using Fluentd on the same machine than the Elasticsearch instance, you should use the **standalone** version (`docker-image/v0.12/debian-fluentd-standalone`).
+
+## Normal version
+For using Fluentd as a normal daemonset, which will send the logs to a remote Fluentd instance though an ip, use the **normal** version (`docker-image/v0.12/debian-fluentd`)
+
+## Building the DockerHub image
+Classic:
+```
+docker build -t username/repository .
+docker login
+docker push username/repository:tag
+```
 
 [![Docker Stars](https://img.shields.io/docker/stars/fluent/fluentd-kubernetes-daemonset.svg)](https://hub.docker.com/r/fluent/fluentd-kubernetes-daemonset)
 [![Docker Pulls](https://img.shields.io/docker/pulls/fluent/fluentd-kubernetes-daemonset.svg)](https://hub.docker.com/r/fluent/fluentd-kubernetes-daemonset)
